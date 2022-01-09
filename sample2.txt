@@ -1,5 +1,5 @@
 {
     "id": "sample2",
-    "address": "",
+    "address": "31 KENNETH WOOD CRES, TORONTO, ON, M2N 4S2",
     "existingGeocodes": []
 }

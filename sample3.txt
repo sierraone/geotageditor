@@ -1,5 +1,5 @@
 {
     "id": "sample3",
-    "address": "",
+    "address": "1507-181 HURON ST, TORONTO, ON, M5T 0C1",
     "existingGeocodes": []
 }

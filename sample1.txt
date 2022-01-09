@@ -1,5 +1,5 @@
 {
     "id": "sample1",
-    "address": "",
+    "address": "5 MUNSIE DR, NOBLETON, ON, L7B 0N8",
     "existingGeocodes": []
 }
