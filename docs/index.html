@@ -1,7 +1,7 @@
 <script src="https://api.labelbox.com/static/labeling-api.js"></script>
 <div id="form"></div>
 <script>
-  var jsonAsset;
+
   function label(label) {
     Labelbox.setLabelForAsset(label).then(() => {
       Labelbox.fetchNextAssetToLabel();
@@ -16,14 +16,13 @@
 
   function drawItem(dataToLabel,existingLabel) {
     var url = dataToLabel;
-
+    if (!existingLabel) existingLabel = "";
     console.log(url);
     fetch(url)
       .then(function(response) {
         response.text().then(function(text) {
-          jsonAsset = text;
           console.log("Text: "+text);
-          done();
+          document.getElementById("text_field").innerHTML = text;
         })
       });
     const labelForm = `
@@ -39,6 +38,6 @@
   }
 
   function done() {
-    document.getElementById("text_field").innerHTML = jsonAsset;
+    
   }
 </script>
