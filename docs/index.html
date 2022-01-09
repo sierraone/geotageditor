@@ -15,6 +15,7 @@
   });
 
   function drawItem(dataToLabel,existingLabel) {
+    const API_KEY = "AIzaSyDGbEtwKVrMJRzjHnPotYhF4IqKTkOhxSg";
     var url = dataToLabel;
     if (!existingLabel) existingLabel = "";
     fetch(url)
@@ -27,12 +28,19 @@
           console.log(js);
           
           //set iframe src
-          document.getElementById('frame').src = 'https://www.google.com/maps/search/'+js.address;
+          document.getElementById('frame').src = "https://www.google.com/maps/embed/v1/place?key="+API_KEY+"&q="+js.address;
         })
       });
     const labelForm = `
     <div id="text_field"></div>
-    <iframe id='frame' width='100%' height='80%'></iframe>
+        <iframe
+        id="frame"
+      width="600"
+      height="450"
+      style="border:0"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
     <div style="display: flex;">
       <button onclick="label('bad')">Bad Quality</button>
       <button onclick="label('good')">Good Quality</button>
