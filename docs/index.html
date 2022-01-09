@@ -1,6 +1,7 @@
 <script src="https://api.labelbox.com/static/labeling-api.js"></script>
 <div id="form"></div>
 <script>
+  var jsonAsset;
   function label(label) {
     Labelbox.setLabelForAsset(label).then(() => {
       Labelbox.fetchNextAssetToLabel();
@@ -15,7 +16,7 @@
 
   function drawItem(dataToLabel,existingLabel) {
     var url = dataToLabel;
-    var jsonAsset;
+
     console.log(url);
     fetch(url)
       .then(function(response) {
