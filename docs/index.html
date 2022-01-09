@@ -15,11 +15,11 @@
 
   function drawItem(dataToLabel) {
     var url = dataToLabel;
-    var asset;
+    var jsonAsset;
     fetch(url)
       .then(function(response) {
         response.text().then(function(text) {
-          asset = text;
+          jsonAsset = text;
           done();
         })
       });
@@ -33,8 +33,8 @@
   `;
     document.querySelector("#form").innerHTML = labelForm;
   }
-  
+
   function done() {
-    document.getElementById('text_field').textContent = asset;
+    document.getElementById('text_field').textContent = jsonAsset;
   }
 </script>
