@@ -16,10 +16,12 @@
   function drawItem(dataToLabel,existingLabel) {
     var url = dataToLabel;
     var jsonAsset;
+    console.log(url);
     fetch(url)
       .then(function(response) {
         response.text().then(function(text) {
           jsonAsset = text;
+          console.log("Text: "+text);
           done();
         })
       });
