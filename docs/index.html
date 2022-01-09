@@ -12,15 +12,29 @@
       drawItem(asset.data);
     }
   });
-  function drawItem(dataToLabel) {
-    const labelForm = `
-    <p>${dataToLabel}</p>
 
+  function drawItem(dataToLabel) {
+    var url = dataToLabel;
+    var asset;
+    fetch(url)
+      .then(function(response) {
+        response.text().then(function(text) {
+          asset = text;
+          done();
+        })
+      });
+    const labelForm = `
+    ${dataToLabel}</p>
+    <div id="text_field"></div>
     <div style="display: flex;">
       <button onclick="label('bad')">Bad Quality</button>
       <button onclick="label('good')">Good Quality</button>
     </div>
   `;
     document.querySelector("#form").innerHTML = labelForm;
+  }
+  
+  function done() {
+    document.getElementById('text_field').textContent = asset;
   }
 </script>
