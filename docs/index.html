@@ -28,13 +28,22 @@
           console.log(js);
           
           //set iframe src
-          document.getElementById('frame').src = "https://www.google.com/maps/embed/v1/place?key="+API_KEY+"&q="+js.address;
+          document.getElementById('frame_road').src = "https://www.google.com/maps/embed/v1/place?key="+API_KEY+"&q="+js.address;
+          document.getElementById('frame_sat').src = "https://www.google.com/maps/embed/v1/place?key="+API_KEY+"&q="+js.address+"&maptype=satellite";
         })
       });
     const labelForm = `
     <div id="text_field"></div>
-        <iframe
-        id="frame"
+    <iframe
+        id="frame_road"
+      width="600"
+      height="450"
+      style="border:0"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
+    <iframe
+        id="frame_sat"
       width="600"
       height="450"
       style="border:0"
