@@ -9,11 +9,11 @@
 
   Labelbox.currentAsset().subscribe(asset => {
     if (asset) {
-      drawItem(asset.data);
+      drawItem(asset.data,asset.label);
     }
   });
 
-  function drawItem(dataToLabel) {
+  function drawItem(dataToLabel,existingLabel) {
     var url = dataToLabel;
     var jsonAsset;
     fetch(url)
@@ -30,11 +30,12 @@
       <button onclick="label('bad')">Bad Quality</button>
       <button onclick="label('good')">Good Quality</button>
     </div>
+    <div>${existingLabel}</div>
   `;
     document.querySelector("#form").innerHTML = labelForm;
   }
 
   function done() {
-    document.getElementById('text_field').textContent = jsonAsset;
+    document.getElementById("text_field").innerHTML = jsonAsset;
   }
 </script>
